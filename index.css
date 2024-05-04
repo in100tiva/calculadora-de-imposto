@@ -1,0 +1,127 @@
+/* styles.css */
+:root {
+    /* Variáveis de Cores - Tons Escuros de Cores Quentes */
+    --background-color: #2b1d0e; /* Fundo em marrom escuro */
+    --container-bg-color: #3e2f1c; /* Fundo do contêiner em marrom médio */
+    --primary-text-color: #f3e4c9; /* Texto claro para contraste */
+    --border-color: #4f3a26; /* Borda em marrom escuro */
+    --button-bg-color: #a65c21; /* Botão em laranja queimado */
+    --button-bg-color-hover: #8a471a; /* Cor de hover do botão em laranja escuro */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --input-border-color: #604732; /* Borda dos inputs em marrom médio */
+
+    /* Variáveis de Fonte */
+    --font-family: 'Courier New', Courier, monospace;
+
+    /* Variáveis de Espaçamento e Tamanho */
+    --container-width: 100%;
+    --container-max-width: 500px;
+    --input-width: 80%;
+    --element-margin: 0.5rem;
+    --padding-standard: 0.625rem;
+    --border-radius-standard: 5px;
+    --font-size-standard: 1rem;
+    --font-size-small: 0.875rem;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px; /* Define a largura mínima da página */
+    min-height: 100vh;
+    color: var(--primary-text-color);
+    background-image: url('paper-texture.png');
+}
+
+.container {
+    background-color: var(--container-bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius-standard);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    min-width: 320px; /* Define a largura mínima do contêiner */
+}
+
+input[type="number"], button {
+    padding: var(--padding-standard);
+    margin-top: var(--element-margin);
+    margin-left: auto; /* Centraliza o elemento horizontalmente */
+    margin-right: auto; /* Centraliza o elemento horizontalmente */
+    width: var(--input-width);
+    border-radius: var(--border-radius-standard);
+    border: 2px solid var(--input-border-color);
+    color: var(--primary-text-color);
+    background-color: #2b1d0e; /* Fundo em marrom escuro */
+}
+
+.nota-fiscal {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: var(--padding-standard);
+    margin-top: 1.25rem;
+    border-radius: var(--border-radius-standard);
+    box-shadow: inset 0 0 10px #aaa;
+    font-family: var(--font-family);
+    color: var(--primary-text-color);
+    font-size: var(--font-size-standard);
+}
+
+.nota-fiscal p {
+    border-bottom: 1px dashed #4f3a26;
+    padding: 0.5rem 0;
+}
+
+label, button, input {
+    display: block;
+}
+
+button {
+    background-color: var(--button-bg-color);
+    color: var(--primary-text-color);
+    margin-top: 1.25rem;
+    border-radius: var(--border-radius-standard);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-bg-color-hover);
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Tablets e dispositivos menores */
+    .container {
+        padding: 1.5rem;
+        max-width: 80%;
+    }
+    input[type="number"], button {
+        width: 90%;
+    }
+    .nota-fiscal p {
+        font-size: var(--font-size-small);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Dispositivos móveis */
+    .container {
+        padding: 1rem;
+        max-width: 90%;
+        min-width: 320px; /* Limite mínimo para dispositivos móveis */
+    }
+    input[type="number"], button {
+        width: 95%;
+    }
+    .nota-fiscal {
+        font-size: var(--font-size-small);
+    }
+}
