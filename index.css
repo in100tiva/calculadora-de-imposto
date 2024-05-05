@@ -1,113 +1,122 @@
 /* styles.css */
+
+/* Tema Claro */
+.light-theme {
+    --background-color: #f9f9f9; /* Fundo claro */
+    --container-bg-color: #ffffff; /* Fundo branco */
+    --primary-text-color: #333;
+    --border-color: #bdc3c7;
+    --button-bg-color: #3498db;
+    --button-bg-color-hover: #2980b9;
+    --input-border-color: #bdc3c7;
+}
+
+/* Tema Escuro */
+.dark-theme {
+    --background-color: #2b1d0e; /* Marrom escuro */
+    --container-bg-color: #3e2f1c; /* Marrom médio */
+    --primary-text-color: #f3e4c9; /* Texto claro */
+    --border-color: #4f3a26;
+    --button-bg-color: #a65c21;
+    --button-bg-color-hover: #8a471a;
+    --input-border-color: #604732;
+}
+
+/* Variáveis Adicionais */
 :root {
-    /* Variáveis de Cores - Tons Escuros de Cores Quentes */
-    --background-color: #2b1d0e; /* Fundo em marrom escuro */
-    --container-bg-color: #3e2f1c; /* Fundo do contêiner em marrom médio */
-    --primary-text-color: #f3e4c9; /* Texto claro para contraste */
-    --border-color: #4f3a26; /* Borda em marrom escuro */
-    --button-bg-color: #a65c21; /* Botão em laranja queimado */
-    --button-bg-color-hover: #8a471a; /* Cor de hover do botão em laranja escuro */
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --input-border-color: #604732; /* Borda dos inputs em marrom médio */
-
-    /* Variáveis de Fonte */
-    --font-family: 'Courier New', Courier, monospace;
-
-    /* Variáveis de Espaçamento e Tamanho */
-    --container-width: 100%;
-    --container-max-width: 500px;
-    --input-width: 80%;
-    --element-margin: 0.5rem;
-    --padding-standard: 0.625rem;
-    --border-radius-standard: 5px;
+    --padding-standard: 1.5rem; /* Espaçamento padrão aumentado */
+    --element-margin: 1rem; /* Maior espaço entre os elementos */
+    --border-radius-standard: 8px; /* Bordas mais arredondadas */
     --font-size-standard: 1rem;
     --font-size-small: 0.875rem;
+    --shadow-standard: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
     margin: 0;
-    padding: 2rem;
+    padding: var(--padding-standard);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 320px; /* Define a largura mínima da página */
+    min-width: 320px;
     min-height: 100vh;
     color: var(--primary-text-color);
-    background-image: url('paper-texture.png');
 }
 
 .container {
     background-color: var(--container-bg-color);
-    padding: 2rem;
+    padding: var(--padding-standard);
     border-radius: var(--border-radius-standard);
-    box-shadow: 0 4px 8px var(--shadow-color);
-    width: var(--container-width);
-    max-width: var(--container-max-width);
-    min-width: 320px; /* Define a largura mínima do contêiner */
+    box-shadow: var(--shadow-standard);
+    width: 100%;
+    max-width: 550px;
+    min-width: 320px;
+    margin: auto;
+    text-align: center; /* Centraliza elementos dentro da div */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: var(--element-margin);
+    font-size: 1.8rem;
+    color: var(--primary-text-color);
 }
 
 input[type="number"], button {
-    padding: var(--padding-standard);
+    padding: 0.75rem;
     margin-top: var(--element-margin);
-    margin-left: auto; /* Centraliza o elemento horizontalmente */
-    margin-right: auto; /* Centraliza o elemento horizontalmente */
-    width: var(--input-width);
+    width: 85%;
     border-radius: var(--border-radius-standard);
     border: 2px solid var(--input-border-color);
     color: var(--primary-text-color);
-    background-color: #2b1d0e; /* Fundo em marrom escuro */
+    background-color: var(--container-bg-color);
+    text-align: center; /* Centraliza texto nos inputs */
 }
 
 .nota-fiscal {
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
     padding: var(--padding-standard);
-    margin-top: 1.25rem;
+    margin-top: var(--element-margin);
     border-radius: var(--border-radius-standard);
-    box-shadow: inset 0 0 10px #aaa;
-    font-family: var(--font-family);
-    color: var(--primary-text-color);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
     font-size: var(--font-size-standard);
+    text-align: left; /* Mantém o texto do extrato alinhado à esquerda */
 }
 
 .nota-fiscal p {
-    border-bottom: 1px dashed #4f3a26;
-    padding: 0.5rem 0;
-}
-
-label, button, input {
-    display: block;
+    border-bottom: 1px dashed var(--border-color);
+    padding: 0.75rem 0;
 }
 
 button {
     background-color: var(--button-bg-color);
     color: var(--primary-text-color);
-    margin-top: 1.25rem;
+    margin-top: var(--element-margin);
     border-radius: var(--border-radius-standard);
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
     background-color: var(--button-bg-color-hover);
+    box-shadow: var(--shadow-standard);
 }
-
 
 /* Responsividade */
 @media (max-width: 768px) {
     /* Tablets e dispositivos menores */
     .container {
-        padding: 1.5rem;
-        max-width: 80%;
+        padding: 1.25rem;
+        max-width: 90%;
     }
     input[type="number"], button {
-        width: 90%;
-    }
-    .nota-fiscal p {
-        font-size: var(--font-size-small);
+        width: 95%;
     }
 }
 
@@ -115,8 +124,8 @@ button:hover {
     /* Dispositivos móveis */
     .container {
         padding: 1rem;
-        max-width: 90%;
-        min-width: 320px; /* Limite mínimo para dispositivos móveis */
+        max-width: 95%;
+        min-width: 320px;
     }
     input[type="number"], button {
         width: 95%;
